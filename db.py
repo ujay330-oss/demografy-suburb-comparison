@@ -6,12 +6,17 @@ import streamlit as st
 load_dotenv()  # Reads your .env file
 
 def get_client() -> Client:
-    """Creates and returns a Supabase client."""
-    url = os.getenv("SUPABASE_URL")
-    key = os.getenv("SUPABASE_KEY")
-    if not url or not key:
-        raise ValueError("Missing SUPABASE_URL or SUPABASE_KEY in .env")
+    """Creates Supabase client — works both locally and on Streamlit Cloud."""
+    try:
+        url = st.secrets['SUPABASE_URL']
+        key = st.secrets['SUPABASE_KEY']
+    except Exception:
+        from dotenv import load_dotenv
+        load_dotenv()
+        url = os.getenv('SUPABASE_URL')
+        key = os.getenv('SUPABASE_KEY')
     return create_client(url, key)
+
 
 def check_suburb_exists(suburb_name: str) -> bool:
     """Returns True if the suburb is already in our database."""
