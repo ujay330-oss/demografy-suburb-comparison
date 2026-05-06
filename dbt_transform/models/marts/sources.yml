@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: public
+    schema: public
+    tables:
+      - name: suburbs_metrics
+      - name: suburbs_raw
+        description: 'Raw place counts per suburb from Google Places API'
+        columns:
+          - name: suburb_name
+            description: 'Suburb name, title-cased'
+          - name: dining_count
+            description: 'Number of cafes, coffee shops and restaurants within 2km'
+          - name: parks_count
+          - name: wellness_count
+          - name: childcare_count
+          - name: transport_count
+          - name: shopping_count
+          - name: education_count
+          - name: healthcare_count

@@ -1,0 +1,14 @@
+name: 'dbt_transform'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_transform'
+
+model-paths: ['models']
+test-paths: ['tests']
+clean-targets: ['target', 'dbt_packages']
+
+models:
+  dbt_transform:
+    marts:
+      +materialized: view   # creates a SQL view, not a table

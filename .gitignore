@@ -1,0 +1,9 @@
+# Ignore environment file
+.env
+dbt_transform/profiles.yml
+__pycache__/
+*.pyc
+.venv/
+dbt_transform/target/
+dbt_transform/dbt_packages/
+*.log

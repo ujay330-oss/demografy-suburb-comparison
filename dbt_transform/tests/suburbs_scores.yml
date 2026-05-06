@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: suburbs_scores
+    description: 'Normalised livability scores per suburb'
+    columns:
+      - name: suburb_name
+        tests:
+          - not_null
+          - unique
+      - name: livability_score
+        tests:
+          - not_null
+      - name: dining_score
+        tests:
+          - not_null
